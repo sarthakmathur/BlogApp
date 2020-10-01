@@ -14,11 +14,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class postListActivity extends AppCompatActivity {
+    
+    private int postListSize;
     private DatabaseReference mdbRef;
     private FirebaseDatabase mfirebaseDb;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +28,11 @@ public class postListActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
-
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mfirebaseDb = FirebaseDatabase.getInstance();
         mdbRef = mfirebaseDb.getReference().child("MBlog");
         mdbRef.keepSynced(true);
-//        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
     @Override
